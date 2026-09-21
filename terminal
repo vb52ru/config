@@ -1,0 +1,106 @@
+########################################
+cat .config/kitty/kitty.conf
+font_family             JetBrainsMono Nerd Font Mono Medium
+font_size               14.0
+background_opacity      0.9
+term                    xterm-256color
+include                 current-theme.conf
+cursor_shape            block
+cursor_trail            1
+window_margin_width     3
+confirm_os_window_close 0
+shell fish
+########################################
+cat .config/kitty/current-theme.conf
+# vim:ft=kitty
+
+## name: GitHub Dark
+## author: GitHub
+## license: MIT
+
+#: The basic colors
+
+foreground #c9d1d9
+background #0d1117
+selection_foreground #0d1117
+selection_background #58a6ff
+
+
+#: Cursor colors
+
+cursor #58a6ff
+
+
+#: Tab bar colors
+
+tab_bar_background #010409
+active_tab_foreground #c9d1d9
+active_tab_background #0d1117
+inactive_tab_foreground #8b949e
+inactive_tab_background #010409
+
+
+#: The basic 16 colors
+
+#: black
+color0 #484f58
+color8 #6e7681
+
+#: red
+color1 #ff7b72
+color9 #ffa198
+
+#: green
+color2 #3fb950
+color10 #56d364
+
+#: yellow
+color3 #d29922
+color11 #e3b341
+
+#: blue
+color4 #58a6ff
+color12 #79c0ff
+
+#: magenta
+color5 #bc8cff
+color13 #d2a8ff
+
+#: cyan
+color6 #39c5cf
+color14 #56d4dd
+
+#: white
+color7 #b1bac4
+color15 #ffffff
+########################################
+cat .config/fish/config.fish
+if status is-interactive
+# Commands to run in interactive sessions can go here
+  set -g fish_greeting ''
+  set -gx PATH /usr/local/bin $PATH
+  zoxide init fish | source
+  #alias docker '/usr/local/bin/docker'
+	alias ll 'lsd -l --group-dirs first --date "+%Y-%m-%d %H:%M"'
+	alias ls 'lsd --group-dirs first --date "+%Y-%m-%d %H:%M"'
+	alias batcat 'bat --paging=never --style=plain'
+	alias gitlog 'git --no-pager log --pretty="%C(bold blue)%ad%C(reset) - %C(red)%h%C(reset) - %C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)" --date=format-local:"%Y-%m-%d %H:%M:%S"'
+end
+########################################
+cat .config/fish/fish_plugins
+jorgebucaran/fisher
+ilancosman/tide@v6
+########################################
+cat .vimrc
+set number relativenumber
+syntax on
+set tabstop=2
+set shiftwidth=2
+set smarttab
+set expandtab
+set smartindent
+set nocompatible
+filetype plugin on
+set hlsearch
+set incsearch
+########################################
