@@ -103,4 +103,6 @@ set nocompatible
 filetype plugin on
 set hlsearch
 set incsearch
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+set langmap+=Ж:
 ########################################
