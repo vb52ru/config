@@ -93,24 +93,38 @@ cat .config/fish/fish_plugins
 jorgebucaran/fisher
 ilancosman/tide@v6
 ########################################
+set nocompatible
 set encoding=utf-8
 scriptencoding utf-8
-set number relativenumber
+
 syntax on
+filetype plugin indent on
+
+" Номера строк
+set number relativenumber
+
+" Отступы: два пробела
 set tabstop=2
 set shiftwidth=2
-set smarttab
 set expandtab
-set smartindent
-set nocompatible
-filetype plugin on
+set smarttab
+set autoindent
+
+" Поиск
 set hlsearch
 set incsearch
+
+" Команды в русской раскладке
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 set langmap+=Ж:
+set nolangremap
 
+" Копирование через SSH в буфер Mac
 augroup OSCYank
   autocmd!
-  autocmd TextYankPost * if v:event.operator ==# 'y' && v:event.regname ==# '' | call OSCYankRegister('"') | endif
+  autocmd TextYankPost *
+        \ if v:event.operator ==# 'y' && v:event.regname ==# '' |
+        \   call OSCYankRegister('"') |
+        \ endif
 augroup END
 ########################################
