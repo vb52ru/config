@@ -2,14 +2,16 @@
 cat .config/kitty/kitty.conf
 font_family             JetBrainsMono Nerd Font Mono Medium
 font_size               14.0
-background_opacity      0.9
+background_opacity      0.92
+background              #1c1c1e
 term                    xterm-256color
 include                 current-theme.conf
 cursor_shape            block
 cursor_trail            1
-window_margin_width     3
+window_margin_width     8
 confirm_os_window_close 0
 shell fish
+clipboard_control write-clipboard write-primary read-clipboard
 ########################################
 cat .config/kitty/current-theme.conf
 # vim:ft=kitty
@@ -91,7 +93,8 @@ cat .config/fish/fish_plugins
 jorgebucaran/fisher
 ilancosman/tide@v6
 ########################################
-cat .vimrc
+set encoding=utf-8
+scriptencoding utf-8
 set number relativenumber
 syntax on
 set tabstop=2
@@ -105,4 +108,9 @@ set hlsearch
 set incsearch
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 set langmap+=Ж:
+
+augroup OSCYank
+  autocmd!
+  autocmd TextYankPost * if v:event.operator ==# 'y' && v:event.regname ==# '' | call OSCYankRegister('"') | endif
+augroup END
 ########################################
