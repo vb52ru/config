@@ -120,6 +120,7 @@ set langmap+=Ж:
 set nolangremap
 
 " Копирование через SSH в буфер Mac
+" git clone https://github.com/ojroques/vim-oscyank.git ~/.vim/pack/plugins/start/vim-oscyank
 augroup OSCYank
   autocmd!
   autocmd TextYankPost *
